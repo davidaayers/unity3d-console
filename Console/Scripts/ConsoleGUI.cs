@@ -25,16 +25,16 @@ public class ConsoleGUI : MonoBehaviour {
     }
 
     public void OnGUI() {
-        GUILayout.Window(WINDOW_ID, consoleRect, RenderWindow, "Console");
+		GUILayout.Window(WINDOW_ID, consoleRect, RenderWindow, "Console");
     }
 
     private void RenderWindow(int id) {
         HandleSubmit();
         HandleEscape();
 
-        GUILayout.BeginScrollView(Vector2.zero);
+		GUILayout.BeginScrollView(new Vector2(0, Mathf.Infinity), false, true);
         GUILayout.Label(consoleLog.log);
-        GUILayout.EndScrollView();
+		GUILayout.EndScrollView();
         GUI.SetNextControlName("input");
         input = GUILayout.TextField(input);
         if (focus) {
