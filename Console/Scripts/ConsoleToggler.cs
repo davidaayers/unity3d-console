@@ -7,7 +7,9 @@ public class ConsoleToggler : MonoBehaviour {
     public ConsoleAction ConsoleOpenAction;
     public ConsoleAction ConsoleCloseAction;
 
-    void Update () {
+    void Update ()
+    {
+        if (!Application.isEditor) return;
 		if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) {
 			shiftDown = true;
 		}
